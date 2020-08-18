@@ -57,9 +57,9 @@ module VAST
     def resource_url
       case resource_type
       when :static
-        URI.parse source_node.at('StaticResource').content.strip
+        Addressable::URI.parse source_node.at('StaticResource').content.strip
       when :iframe
-        URI.parse source_node.at('IFrameResource').content.strip
+        Addressable::URI.parse source_node.at('IFrameResource').content.strip
       end
     end
     
@@ -71,15 +71,15 @@ module VAST
     end
 
     def click_through_url
-      URI.parse source_node.at('IconClickThrough').content.strip
+      Addressable::URI.parse source_node.at('IconClickThrough').content.strip
     end
 
     def click_tracking_url
-      URI.parse source_node.at('IconClickTracking').content.strip
+      Addressable::URI.parse source_node.at('IconClickTracking').content.strip
     end
 
     def view_tracking_url
-      URI.parse source_node.at('IconViewTracking').content.strip
+      Addressable::URI.parse source_node.at('IconViewTracking').content.strip
     end
     
     # end of class

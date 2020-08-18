@@ -5,6 +5,7 @@ gemspec
 # Used in Rakefile
 gem 'pathological' # adds '.' to $LOAD_PATH per Pathfile
 gem 'rake'
+gem 'addressable'
 
 group :test do
   # alternative runners for MiniTest, both colorful and informative.

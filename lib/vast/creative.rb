@@ -1,3 +1,4 @@
+# coding: utf-8
 module VAST
   # Contains the information related to a piece of creative.
   # 
@@ -35,9 +36,9 @@ module VAST
       source_node.xpath('.//Tracking').to_a.collect do |node|
         underscored_name = underscore(node[:event])
         if tracking_urls[underscored_name.to_sym]
-           tracking_urls[underscored_name.to_sym] << URI.parse(node.content.strip)
+           tracking_urls[underscored_name.to_sym] << Addressable::URI.parse(node.content.strip)
         else
-           tracking_urls[underscored_name.to_sym] = [URI.parse(node.content.strip)]
+           tracking_urls[underscored_name.to_sym] = [Addressable::URI.parse(node.content.strip)]
         end
       end
       tracking_urls
